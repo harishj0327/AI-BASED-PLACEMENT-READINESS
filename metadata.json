@@ -1,0 +1,6 @@
+{
+  "name": "AI-Based Placement Readiness Score Predictor",
+  "description": "Multi-factor ML placement readiness assessment system analyzing CGPA, programming, aptitude, communication, and experience with regression models, model explainability, and personalized recommendations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

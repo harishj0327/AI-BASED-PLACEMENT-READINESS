@@ -1,0 +1,64 @@
+{
+  "model_name": "Linear Regression",
+  "model_version": "1.0.0",
+  "training_timestamp": "2026-09-29T17:20:28.331586+00:00",
+  "dataset_size": 1500,
+  "train_samples": 1200,
+  "test_samples": 300,
+  "feature_count": 8,
+  "feature_names": [
+    "cgpa",
+    "programming_skills",
+    "aptitude_score",
+    "communication_skills",
+    "technical_skills",
+    "projects_score",
+    "certifications",
+    "internship_experience"
+  ],
+  "metrics": {
+    "model_name": "Linear Regression",
+    "mae": 3.567,
+    "rmse": 4.549,
+    "r2": 0.7817
+  },
+  "all_models_metrics": {
+    "Linear Regression": {
+      "model_name": "Linear Regression",
+      "mae": 3.567,
+      "rmse": 4.549,
+      "r2": 0.7817
+    },
+    "Decision Tree Regressor": {
+      "model_name": "Decision Tree Regressor",
+      "mae": 5.25,
+      "rmse": 6.67,
+      "r2": 0.5306
+    },
+    "Random Forest Regressor": {
+      "model_name": "Random Forest Regressor",
+      "mae": 3.997,
+      "rmse": 5.095,
+      "r2": 0.7261
+    },
+    "Support Vector Regressor (SVR)": {
+      "model_name": "Support Vector Regressor (SVR)",
+      "mae": 3.822,
+      "rmse": 4.796,
+      "r2": 0.7572
+    }
+  },
+  "feature_importance": {
+    "programming_skills": 23.06,
+    "aptitude_score": 15.96,
+    "technical_skills": 14.92,
+    "communication_skills": 12.98,
+    "cgpa": 10.94,
+    "internship_experience": 9.71,
+    "certifications": 8.08,
+    "projects_score": 4.35
+  },
+  "sklearn_version": "1.9.1",
+  "dataset_label": "Prototype trained on a generated academic dataset",
+  "selection_criterion": "Lowest RMSE with R\u00b2 >= 0.85"
+}

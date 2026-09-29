@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Student user account and college metadata",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 150 },
+        "college": { "type": "string", "maxLength": 150 },
+        "branch": { "type": "string", "maxLength": 100 },
+        "batch": { "type": "string", "maxLength": 50 },
+        "cgpa": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "name", "email"]
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Latest student input metrics",
+      "type": "object",
+      "properties": {
+        "cgpa": { "type": "number" },
+        "programming_skills": { "type": "number" },
+        "aptitude_score": { "type": "number" },
+        "communication_skills": { "type": "number" },
+        "technical_skills": { "type": "number" },
+        "projects_score": { "type": "number" },
+        "certifications": { "type": "number" },
+        "internship_experience": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["cgpa", "programming_skills"]
+    },
+    "Prediction": {
+      "title": "Prediction",
+      "description": "Placement readiness assessment prediction record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "score": { "type": "number" },
+        "category": { "type": "string", "maxLength": 50 },
+        "modelName": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "score", "category"]
+    },
+    "ModelMetadata": {
+      "title": "ModelMetadata",
+      "description": "Active ML model metadata and comparison metrics",
+      "type": "object",
+      "properties": {
+        "modelName": { "type": "string", "maxLength": 100 },
+        "mae": { "type": "number" },
+        "rmse": { "type": "number" },
+        "r2": { "type": "number" },
+        "datasetSize": { "type": "number" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Student user profile documents"
+    },
+    "/students/{userId}": {
+      "schema": "Student",
+      "description": "Student feature records"
+    },
+    "/predictions/{predictionId}": {
+      "schema": "Prediction",
+      "description": "Student placement predictions"
+    },
+    "/model_metadata/{docId}": {
+      "schema": "ModelMetadata",
+      "description": "Production model metadata and metrics"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+[
+  "backend/tests/test_api.py::test_category_calculation",
+  "backend/tests/test_api.py::test_dashboard_stats",
+  "backend/tests/test_api.py::test_dynamic_recommendations",
+  "backend/tests/test_api.py::test_health_endpoint",
+  "backend/tests/test_api.py::test_model_info_endpoint",
+  "backend/tests/test_api.py::test_model_metrics_comparison",
+  "backend/tests/test_api.py::test_prediction_endpoint_valid",
+  "backend/tests/test_api.py::test_prediction_invalid_range",
+  "backend/tests/test_api.py::test_prediction_missing_field",
+  "backend/tests/test_api.py::test_predictions_history_and_save"
+]

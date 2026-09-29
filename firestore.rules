@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // User profiles: strictly owner readable and writable
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    // Student feature entries: strictly owner
+    match /students/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    // Predictions collection: owner-only read & create
+    match /predictions/{predictionId} {
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if false; // Immutable audit trail
+    }
+
+    // Public read-only model metadata
+    match /model_metadata/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
